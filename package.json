@@ -9,6 +9,7 @@
     "test": "npm test --prefix frontend && npm test --prefix backend"
   },
   "dependencies": {
+    "aws-amplify": "^6.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -24,5 +25,15 @@
   "bugs": {
     "url": "https://github.com/engjonah/weatheria/issues"
   },
-  "homepage": "https://github.com/engjonah/weatheria#readme"
+  "homepage": "https://github.com/engjonah/weatheria#readme",
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.6.0",
+    "@aws-amplify/backend-cli": "^1.4.0",
+    "aws-cdk": "^2.165.0",
+    "aws-cdk-lib": "^2.165.0",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
 }
