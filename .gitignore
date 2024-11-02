@@ -6,3 +6,7 @@ coverage/
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+
+#terraform
+.terraform/
+*.tfstate*
