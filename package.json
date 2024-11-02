@@ -1,0 +1,28 @@
+{
+  "name": "weatheria",
+  "version": "1.0.0",
+  "description": "This steampunk themed web app lets you control the weather",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
+    "test": "npm test --prefix frontend && npm test --prefix backend"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engjonah/weatheria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/engjonah/weatheria/issues"
+  },
+  "homepage": "https://github.com/engjonah/weatheria#readme"
+}
