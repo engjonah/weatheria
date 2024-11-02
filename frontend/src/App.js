@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import BackendStatus from './components/BackendStatus';
 import './App.css';
+import WalletConnector from './components/WalletConnector';
 
 function App() {
   const API_BASE_URL = process.env.NODE_ENV === 'production' ?
@@ -25,9 +26,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-
+        <WalletConnector/>
         <BackendStatus status={test}/>
-        
         <a
           className="App-link"
           href="https://reactjs.org"
