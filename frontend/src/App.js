@@ -2,23 +2,29 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import BackendStatus from './components/BackendStatus';
 import './App.css';
-import WalletConnector from './components/WalletConnector';
+import ConnectButton from './components/ConnectButton';
+import MintNFT from './components/MintNft';
+import ViewNFTs from './components/ViewNfts';
 
 function App() {
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
+  const [account, setAccount] = useState(null);
+
   const API_BASE_URL = process.env.NODE_ENV === 'production' ?
-    window.location.origin:
+    window.location.origin :
     'http://localhost:3000';
 
   let [test, setTest] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`${API_BASE_URL}/api/test`)
-      .then(res=>res.json())
-      .then(res=>{
+      .then(res => res.json())
+      .then(res => {
         setTest(res)
       })
-  },[API_BASE_URL]);
-  
+  }, [API_BASE_URL]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,8 +32,16 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <WalletConnector/>
-        <BackendStatus status={test}/>
+        <h1>Weatheria DApp</h1>
+        <ConnectButton setProvider={setProvider} setSigner={setSigner} setAccount={setAccount} />
+        {account && (
+          <>
+            <MintNFT signer={signer} />
+            <ViewNFTs provider={provider} account={account} />
+          </>
+        )}
+
+        <BackendStatus status={test} />
         <a
           className="App-link"
           href="https://reactjs.org"
