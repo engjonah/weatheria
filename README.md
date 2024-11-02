@@ -5,6 +5,7 @@ This steampunk themed web app lets you control the weather. By selecting certain
 Repo Structure: 
 ```
 ├─ frontend/
+│  ├─ amplify/
 │  ├─ public/
 │  ├─ src/
 │  │  └─ components/
@@ -19,6 +20,7 @@ Repo Structure:
 │  ├─ server.js
 │  ├─ package.json
 │  └─ package-lock.json
+├─ terraform/
 ├─ README.md
 ├─ .gitignore
 ├─ package.json
