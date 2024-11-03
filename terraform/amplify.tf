@@ -3,7 +3,7 @@ resource "aws_amplify_app" "weatheria_amplify" {
   name       = var.app_name
   repository = var.repository #This will be your reactjs project
 
-  access_token             = local.envs["GITHUB_TOKEN"]
+  access_token             = var.GITHUB_TOKEN
   enable_branch_auto_build = true
 
   # The default build_spec added by the Amplify Console for React.
