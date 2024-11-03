@@ -24,10 +24,12 @@ app.listen(port, () => {
 });
 
 //
-//fetchWeatherData();
+fetchWeatherData();
 
 // Schedule the task to run every hour (only starts at the top of an hour i.e. 12:00)
+/*
 cron.schedule('0 * * * *', () => {
   console.log('Fetching weather data every hour');
   fetchWeatherData();
 });
+*/

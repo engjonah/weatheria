@@ -88,4 +88,4 @@ const fetchWeatherData = async () => {
       });
   };
   
-models.export = { fetchWeatherData }
+module.exports = { fetchWeatherData };
