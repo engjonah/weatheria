@@ -11,3 +11,88 @@ body {
   border-radius: 10px;
   background-color: #333;
 }
+
+/* src/Destination.js */
+.destination-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.weather-data {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-data h3 {
+  margin-bottom: 10px;
+  color: black;
+}
+
+.weather-data ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.weather-data li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: black;
+}
+
+.globe-animation {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  width: 50%;
+}
+
+.globe-and-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between the globe and image */
+  margin-top: 20px;
+}
+
+.globe-and-image {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-image-container {
+  width: 40%;
+  text-align: center;
+}
+
+.location-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* src/PickWeather.js */
+.pickweather-input, .pickweather-form-group {
+  outline: none;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.pickweather-input:hover, select:hover {
+  border-color: #00ffff; /* Adjust the color as needed */
+}
+
+.pickweather-input:focus, select:focus {
+  border-color: #00ffff; /* Adjust the color as needed */
+}
