@@ -42,7 +42,7 @@ function PickWeather() {
     setError(null);
     
     try {
-      const response = null;
+      let response = null;
       response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
