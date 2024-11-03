@@ -3234,7 +3234,7 @@ contract WeatheriaNFT is ERC721, Ownable {
      * @param to Address to receive the minted NFT.
      * @param uri Metadata URI for the generated image.
      */
-    function mintNFT(address to, string memory uri) public onlyOwner returns (uint256) {
+    function mintNFT(address to, string memory uri) public returns (uint256) {
         _tokenIdCounter.increment();
         uint256 tokenId = _tokenIdCounter.current();
         _safeMint(to, tokenId);
@@ -3269,6 +3269,7 @@ contract WeatheriaNFT is ERC721, Ownable {
     /**
      * @dev Returns a list of token IDs owned by a specific address.
      * @param owner Address to query.
+     * @return List of token IDs owned by the specified address.
      */
     function tokensOfOwner(address owner) public view returns (uint256[] memory) {
         return _ownedTokens[owner];

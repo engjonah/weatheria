@@ -6,7 +6,7 @@ const ViewNFTs = () => {
   const [nfts, setNfts] = useState([]);
   const [signer, setSigner] = useState(null);
   const [walletAddress, setWalletAddress] = useState(null);
-  const contractAddress = '0x8c28fa18cf99b5a35409f2502088beb1cc2c87b4';
+  const contractAddress = '0x057c2fdfa073f36bA14869de4510DC7384247fDD';
 
   // Function to prompt wallet connection
   const connectWallet = async () => {
