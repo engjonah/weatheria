@@ -100,8 +100,7 @@ const App = ({ addOnUISdk, sandboxProxy }) => {
   async function handleAddLabels() {
     if (!city) return;
 
-    const corsProxy = "http://localhost:3000/proxy?url=";
-    const apiUrl = `${corsProxy}${API_URL}?city=${city}`;
+    const apiUrl = `${API_URL}?city=${city}`;
 
     try {
       const response = await fetch(apiUrl);
