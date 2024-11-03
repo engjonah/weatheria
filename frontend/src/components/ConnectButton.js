@@ -1,6 +1,7 @@
 // src/components/ConnectButton.js
 import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserProvider } from 'ethers';
+import '../styles.css';
 
 const ConnectButton = ({ setProvider, setSigner, setAccount }) => {
   const [isConnected, setIsConnected] = useState(false);

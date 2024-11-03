@@ -1,0 +1,47 @@
+<svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Vintage copper and brass gradient -->
+    <linearGradient id="copper-metal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color: #b87333; stop-opacity: 1" />
+      <stop offset="70%" style="stop-color: #8c6c4a; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #5b3a29; stop-opacity: 1" />
+    </linearGradient>
+    
+    <!-- Soft neon glow for accents -->
+    <radialGradient id="soft-neon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="30%" style="stop-color: #ff6600; stop-opacity: 0.8" />
+      <stop offset="100%" style="stop-color: #000000; stop-opacity: 0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Outer rim with rivets and pipes -->
+  <circle cx="50" cy="50" r="48" fill="url(#copper-metal-gradient)" stroke="#333333" stroke-width="2" />
+  <g fill="url(#soft-neon-glow)">
+    <!-- Teeth with pipes -->
+    <rect x="12" y="46" width="8" height="4" transform="rotate(0 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(30 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(60 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(90 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(120 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(150 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(180 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(210 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(240 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(270 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(300 50 50)" />
+    <rect x="12" y="46" width="8" height="4" transform="rotate(330 50 50)" />
+  </g>
+
+  <!-- Inner gear and pipes -->
+  <circle cx="50" cy="50" r="30" fill="rgba(128, 64, 32, 0.5)" stroke="#704214" stroke-width="1.5" />
+  <g transform="translate(50, 50)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#5b3a29" stroke-width="1" />
+    <!-- Pipe-like shapes -->
+    <rect x="-12" y="-1" width="24" height="2" fill="#704214" />
+    <rect x="-1" y="-12" width="2" height="24" fill="#704214" />
+  </g>
+
+  <!-- Small center details -->
+  <circle cx="50" cy="50" r="6" fill="url(#soft-neon-glow)" />
+  <circle cx="50" cy="50" r="3" fill="#ff6600" />
+</svg>

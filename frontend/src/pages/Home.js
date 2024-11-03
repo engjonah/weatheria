@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SteampunkButton from '../components/SteampunkButton';
+import SteampunkDevice from '../assets/device.png';
+import '../styles.css';
 
 function Home() {
   return (
@@ -10,12 +12,14 @@ function Home() {
       <p className="home-text">
         Discover locations with your desired weather conditions through our sleek and intuitive interface.
       </p>
-      <img src="/steampunk-device.png" alt="Weatheria Device" className="home-image" loading="lazy" />
-      <Link to="/pick-weather">
-        <SteampunkButton>
-          <i className="fas fa-search"></i> Start Now
-        </SteampunkButton>
-      </Link>
+      <img src={SteampunkDevice} alt="Weatheria Device" className="home-image" loading="lazy" />
+      <div className="button-container">
+        <Link to="/pick-weather">
+          <SteampunkButton>
+            <i className="fas fa-search"></i> Start Now
+          </SteampunkButton>
+        </Link>
+      </div>
     </div>
   );
 }

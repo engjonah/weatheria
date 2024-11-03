@@ -1,69 +1,208 @@
-/* src/styles/styles.css */
+/* Import Steampunk Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Goudy+Bookletter+1911&family=Montserrat&family=Roboto+Mono&display=swap');
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap');
+/* CSS Variables for Consistent Theming */
+:root {
+  /* Colors */
+  --background-color: #1a1a1a;
+  --text-color: #d3af6c;
+  --heading-color: #e0c97a;
+  --link-color: #e6b800;
+  --link-hover-color: #ffdd99;
+  --button-color: #ffd700;
+  --button-bg: linear-gradient(135deg, #6b4f4f, #3a2c2c);
+  --button-border: #9a7b4f;
+  --button-hover-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6);
+  --button-active-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 
-/* CSS Reset */
+  /* Fonts */
+  --font-body: 'Goudy Bookletter 1911', serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --font-heading: 'Cinzel', serif;
+  --font-logo: 'Montserrat', sans-serif;
+
+  /* Shadows */
+  --text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  --heading-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
+  /* Other */
+  --gear-size-large: 50px;
+  --gear-size-medium: 30px;
+  --gear-size-small: 25px;
+}
+
+/* Reset Default Margins and Paddings */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+/* General Styles */
 html, body {
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
+  font-family: var(--font-body);
+  background-color: var(--background-color);
+  color: var(--text-color);
   scroll-behavior: smooth;
+  height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+p, li, a {
+  line-height: 1.7;
+}
+
+/* Links */
 a {
+  color: var(--link-color);
   text-decoration: none;
-  color: inherit;
+  transition: color 0.3s;
 }
 
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Buttons */
 button {
-  font-family: 'Montserrat', sans-serif;
-  border: none;
+  font-family: var(--font-heading);
+  color: var(--button-color);
+  background: var(--button-bg);
+  border: 2px solid var(--button-border);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   cursor: pointer;
 }
 
-/* App Container */
-.app-container {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--button-hover-shadow);
 }
 
-/* Decorative Gears */
-.gear {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  z-index: -1;
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--button-active-shadow);
 }
 
-.gear-left {
-  top: 20px;
-  left: 10px;
-  animation: spin 10s linear infinite;
+/* Steampunk Button Styles */
+.steampunk-button {
+  font-family: var(--font-heading);
+  background: var(--button-bg);
+  color: var(--button-color);
+  padding: 12px 25px;
+  font-size: 1.1em;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.gear-right {
-  bottom: 20px;
-  right: 10px;
-  animation: spin-reverse 15s linear infinite;
+.steampunk-button i {
+  margin-right: 8px;
+  color: var(--button-color);
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.steampunk-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--button-hover-shadow);
 }
 
-@keyframes spin-reverse {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+.steampunk-button:active {
+  transform: translateY(0);
+  box-shadow: var(--button-active-shadow);
+}
+
+
+/* Common Heading Styles */
+.page-heading {
+  font-family: var(--font-logo);
+  font-size: 3em;
+  color: var(--button-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: var(--heading-shadow);
+  margin-bottom: 20px;
+}
+
+/* Page-Specific Heading Overrides */
+.home-heading {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.pickweather-heading {
+  font-size: 2.8em;
+  color: #00bcd4;
+  margin-bottom: 30px;
+  letter-spacing: 1.5px;
+}
+
+/* Common Text Styles */
+.page-text {
+  font-size: 1.1em;
+  color: #bfa17b;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Page-Specific Text Overrides */
+.home-text, .about-text {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.home-text {
+  font-size: 1.2em;
+  max-width: 600px;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.pickweather-input {
+  background-color: #3e2d23;
+  color: #ffdd99;
+  border: 1px solid #8b4513;
+  padding: 10px;
+  font-family: var(--font-body);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.pickweather-input:focus {
+  border-color: #00bcd4;
+  outline: none;
+}
+
+.pickweather-label {
+  font-size: 1.2em;
+  color: #ffcc66;
+}
+
+/* List Items */
+.weather-data li {
+  color: var(--text-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Globe Image */
+.globe-animation {
+  border: 2px solid #b08d57;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6), inset 0px 0px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* Navbar Styles */
@@ -71,17 +210,18 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 40px 40px;
   background-color: rgba(0, 0, 0, 0.8);
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 100px;
 }
 
 .navbar-logo {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-logo);
   font-size: 1.8em;
-  color: #ffd700;
+  color: var(--button-color);
 }
 
 .navbar-links {
@@ -96,8 +236,41 @@ button {
   transition: color 0.3s;
 }
 
-.navbar-links li a:hover {
-  color: #ffd700;
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: var(--button-color);
+}
+
+/* Decorative Gears Container within Navbar */
+.gears-container {
+  position: absolute;
+  bottom: -25%; /* Adjust to bring the border to the center of the gears */
+  left: 0;
+  width: 100%;
+  height: var(--gear-size-large);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  gap: 0;
+}
+
+.gear {
+  width: var(--gear-size-large);
+  height: var(--gear-size-large);
+  animation: rotate 8s linear infinite;
+  margin-left: -2.5px; /* Adjust this value for more or less overlap */
+}
+
+
+.gear:nth-child(even) {
+  animation-direction: reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Main Content Styles */
@@ -107,71 +280,54 @@ button {
 
 /* About Page Styles */
 .about-container {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #1e1e1e;
-  color: #f0e6d2;
-  min-height: 100vh;
+  background: url('./assets/parchment.jpg') no-repeat center center fixed;
+  background-size: cover;
+  border: 1px solid #604d3b;
+  padding: 60px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
-.about-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
-  color: #ffd700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.about-text {
-  font-size: 1.1em;
-  max-width: 800px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
-.about-image {
+/* Images */
+.page-image {
   width: 100%;
   max-width: 400px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
-.about-image:hover {
+.page-image:hover {
   transform: scale(1.05);
+}
+
+/* About Page Image Overrides */
+.about-image {
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
 }
 
 /* Home Page Styles */
 .home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 60px 20px;
-  background-color: #121212;
-  color: #e0e0e0;
-  min-height: 100vh;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.home-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
-  color: #00bcd4;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
 }
 
-.home-text {
-  font-size: 1.1em;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
+/* Home Page Image Overrides */
 .home-image {
   width: 100%;
-  max-width: 400px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+  max-width: 300px; /* Reduced size */
+  border-radius: 10px;
+  margin: 20px 0;
   transition: transform 0.3s ease;
 }
 
@@ -188,15 +344,6 @@ button {
   min-height: 100vh;
 }
 
-.pickweather-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.8em;
-  color: #00bcd4;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
 .pickweather-form {
   margin: 0 auto;
   padding: 30px;
@@ -211,29 +358,6 @@ button {
   text-align: left;
 }
 
-.pickweather-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1em;
-  color: #00bcd4;
-}
-
-.pickweather-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #00bcd4;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fafafa;
-  font-size: 1em;
-  transition: border-color 0.3s ease;
-}
-
-.pickweather-input:focus {
-  border-color: #00bcd4;
-  outline: none;
-}
-
 .pickweather-image-container {
   margin-top: 40px;
   padding: 20px;
@@ -244,12 +368,13 @@ button {
 }
 
 .pickweather-subheading {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-logo);
   font-size: 1.5em;
   color: #00bcd4;
   margin-bottom: 15px;
 }
 
+/* PickWeather Image Overrides */
 .pickweather-image {
   width: 100%;
   max-width: 500px;
@@ -262,70 +387,89 @@ button {
   transform: scale(1.02);
 }
 
-/* SteampunkButton Styles */
-.steampunk-button {
-  margin-top: 15px;
-  padding: 12px 30px;
-  font-size: 1em;
-  background: linear-gradient(135deg, #00bcd4, #009688);
-  color: #ffffff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-family: 'Montserrat', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.steampunk-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 188, 212, 0.6);
-}
-
-.steampunk-button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
-}
-
-.steampunk-button i {
-  margin-right: 8px;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .about-heading,
-  .home-heading,
-  .pickweather-heading {
-    font-size: 2em;
-  }
-
-  .about-text,
-  .home-text,
-  .pickweather-form {
-    max-width: 90%;
-  }
-
-  .about-image,
-  .home-image,
-  .pickweather-image {
-    max-width: 300px;
-  }
-
-  .steampunk-button {
-    width: 100%;
-    justify-content: center;
-  }
-
+  /* Navbar Adjustments */
   .navbar {
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+    padding: 20px 20px 60px;
+    height: auto;
   }
 
   .navbar-links {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+  }
+
+  .navbar-links li a {
+    font-size: 1em;
+  }
+
+  /* Gears Adjustments */
+  .gears-container {
+    height: var(--gear-size-medium);
+  }
+  
+  .gear {
+    width: var(--gear-size-medium);
+    height: var(--gear-size-medium);
+  }
+
+  .gears-container .gear:nth-child(n+15) {
+    display: none;
+  }
+
+  /* Heading Adjustments */
+  .page-heading {
+    font-size: 2em;
+  }
+
+  /* Text Adjustments */
+  .page-text {
+    max-width: 90%;
+  }
+
+  /* Image Adjustments */
+  .page-image {
+    max-width: 300px;
+  }
+
+  /* Steampunk Button Adjustments */
+  .steampunk-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Gears Adjustments */
+  .gears-container {
+    height: var(--gear-size-small);
+  }
+
+  .gear {
+    width: var(--gear-size-small);
+    height: var(--gear-size-small);
+  }
+
+  .gears-container .gear:nth-child(n+12) {
+    display: none;
+  }
+
+  /* Navbar Adjustments */
+  .navbar {
+    padding: 15px 15px 50px;
+  }
+
+  /* Heading Adjustments */
+  .page-heading {
+    font-size: 1.8em;
+  }
+
+  /* Button Adjustments */
+  button, .steampunk-button {
+    padding: 8px 16px;
   }
 }

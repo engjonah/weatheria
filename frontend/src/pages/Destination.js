@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
 import { useLocation } from 'react-router-dom';
-import '../App.css';
+import '../styles.css';
 
 function Destination() {
     const location = useLocation();

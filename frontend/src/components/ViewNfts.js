@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import WeatheriaNFT from '../abi/WeatheriaNFT.json';
+import '../styles.css';
 
 const ViewNFTs = ({ provider, account }) => {
   const [nfts, setNfts] = useState([]);

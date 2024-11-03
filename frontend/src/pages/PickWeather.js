@@ -1,15 +1,38 @@
 // src/pages/PickWeather/PickWeather.js
 import React, { useState } from 'react';
 import SteampunkButton from '../components/SteampunkButton';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Vial from '../components/Vial';
+import Knob from '../components/Knob';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import './PickWeather.css'; // Ensure this file exists
+
+const PickWeatherContainer = styled.div`
+  background: url('/images/steampunk-background.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 50px;
+  color: #f5f5dc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 function PickWeather() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [conditions, setConditions] = useState('Clear');
-  const [feelslikeF, setFeelslikeF] = useState(0);
-  const [humidity, setHumidity] = useState(0);
-  const [windMph, setWindMph] = useState(0);
-  const [cloud, setCloud] = useState(0);
+  const [feelslikeF, setFeelslikeF] = useState(70);
+  const [humidity, setHumidity] = useState(50);
+  const [windMph, setWindMph] = useState(10);
+  const [cloud, setCloud] = useState(50);
   const [precipIn, setPrecipIn] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,41 +42,38 @@ function PickWeather() {
     setError(null);
     
     try {
-        const response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ weatherData: { 
-                current: {
-                    condition: { text: conditions }, // Use the current condition state
-                    wind_mph: windMph, // Use the actual wind speed variable
-                    precip_in: precipIn, // Use the actual precipitation variable
-                    humidity: humidity, // Use the actual humidity variable
-                    cloud: cloud, // Use the actual cloud coverage variable
-                    feelslike_f: feelslikeF // Use the actual feels like variable
-                }
-            }}),
-        });
+      const response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ weatherData: { 
+            current: {
+                condition: { text: conditions },
+                wind_mph: windMph,
+                precip_in: precipIn,
+                humidity: humidity,
+                cloud: cloud,
+                feelslike_f: feelslikeF
+            }
+        }}),
+      });
 
-        if (!response.ok) {
-            const errorText = await response.text(); // Get error response body
-            throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
-        }
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
+      }
 
-        const data = await response.json();
-        //console.log(data)
-
-        // Navigate to a new route after successfully fetching
-        navigate('/destination', { state: { weatherData: data } }); // Pass the entire data object
+      const data = await response.json();
+      navigate('/destination', { state: { weatherData: data } });
     } catch (err) {
-        console.error('Fetch error:', err); // Log the error for debugging
-        setError(err.message);
+      console.error('Fetch error:', err);
+      setError(err.message);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <div className="pickweather-container">
+    <PickWeatherContainer className="pickweather-container">
       <h2 className="pickweather-heading">Reverse Weather Search</h2>
       <form
         className="pickweather-form"
@@ -62,7 +82,7 @@ function PickWeather() {
           fetchData();
         }}
       >
-        <div className="pickweather-form-group">
+        <FormGroup>
           <label htmlFor="conditions" className="pickweather-label">
             Weather Condition:
           </label>
@@ -122,94 +142,61 @@ function PickWeather() {
               <option key={condition} value={condition}>{condition}</option>
             ))}
           </select>
-        </div>
-        <div className="pickweather-form-group">
-          <label htmlFor="feelslikeF" className="pickweather-label">
-            Feels Like (°F):
-          </label>
-          <input
-            id="feelslikeF"
-            type="number"
+        </FormGroup>
+
+        <FormGroup>
+          <Vial
+            label="Feels Like (°F)"
             value={feelslikeF}
-            onChange={(e) => setFeelslikeF(parseFloat(e.target.value) || 0)}
-            className="pickweather-input"
-            required
-            min="-50"
-            max="150"
-            aria-label="Feels like temperature in Fahrenheit"
+            color="#ff6347" // Tomato
+            onChange={setFeelslikeF}
           />
-        </div>
-        <div className="pickweather-form-group">
-          <label htmlFor="humidity" className="pickweather-label">
-            Humidity (%):
-          </label>
-          <input
-            id="humidity"
-            type="number"
+        </FormGroup>
+
+        <FormGroup>
+          <Vial
+            label="Humidity (%)"
             value={humidity}
-            onChange={(e) => setHumidity(parseInt(e.target.value) || 0)}
-            className="pickweather-input"
-            required
-            min="0"
-            max="100"
-            aria-label="Humidity percentage"
+            color="#1e90ff" // DodgerBlue
+            onChange={setHumidity}
           />
-        </div>
-        <div className="pickweather-form-group">
-          <label htmlFor="windMph" className="pickweather-label">
-            Wind Speed (mph):
-          </label>
-          <input
-            id="windMph"
-            type="number"
+        </FormGroup>
+
+        <FormGroup>
+          <Knob
+            label="Wind Speed (mph)"
             value={windMph}
-            onChange={(e) => setWindMph(parseFloat(e.target.value) || 0)}
-            className="pickweather-input"
-            required
-            min="0"
-            max="250"
-            aria-label="Wind Speed in mph"
+            onChange={setWindMph}
+            min={0}
+            max={250}
+            step={1}
           />
-        </div>
-        <div className="pickweather-form-group">
-          <label htmlFor="cloud" className="pickweather-label">
-            Cloud Cover (%):
-          </label>
-          <input
-            id="cloud"
-            type="number"
+        </FormGroup>
+
+        <FormGroup>
+          <Vial
+            label="Cloud Cover (%)"
             value={cloud}
-            onChange={(e) => setCloud(parseInt(e.target.value) || 0)}
-            className="pickweather-input"
-            required
-            min="0"
-            max="100"
-            aria-label="Cloud cover percentage"
+            color="#d3d3d3" // LightGray
+            onChange={setCloud}
           />
-        </div>
-        <div className="pickweather-form-group">
-          <label htmlFor="precipIn" className="pickweather-label">
-            Precipitation (in):
-          </label>
-          <input
-            id="precipIn"
-            type="number"
+        </FormGroup>
+
+        <FormGroup>
+          <Vial
+            label="Precipitation (in)"
             value={precipIn}
-            onChange={(e) => setPrecipIn(parseFloat(e.target.value) || 0)}
-            className="pickweather-input"
-            required
-            min="0"
-            max="100"
-            aria-label="Precipitation in inches"
+            color="#00ced1" // DarkTurquoise
+            onChange={setPrecipIn}
           />
-        </div>
+        </FormGroup>
 
         <SteampunkButton type="submit">
           {loading ? 'Searching...' : <><i className="fas fa-search"></i> Find Location</>}
         </SteampunkButton>
         {error && <p className="error-message">{error}</p>}
       </form>
-    </div>
+    </PickWeatherContainer>
   );
 }
 

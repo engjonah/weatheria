@@ -1,0 +1,99 @@
+<svg
+  width="500"
+  height="700"
+  viewBox="0 0 500 700"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <!-- Background Rectangle for Frame -->
+  <rect x="0" y="0" width="500" height="700" fill="#2c2c2c" />
+
+  <!-- Phone Base -->
+  <ellipse cx="250" cy="600" rx="200" ry="40" fill="#7f5a2b" />
+  <rect x="100" y="520" width="300" height="80" fill="#a57238" />
+  <ellipse cx="250" cy="550" rx="150" ry="20" fill="#5d3c1b" />
+
+  <!-- Double Gears with Rotation Animation on Base -->
+  <circle cx="150" cy="575" r="30" fill="#3c3c3c">
+    <animateTransform attributeName="transform" type="rotate" from="0 150 575" to="360 150 575" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="150" cy="575" r="20" fill="#4c4c4c">
+    <animateTransform attributeName="transform" type="rotate" from="360 150 575" to="0 150 575" dur="7s" repeatCount="indefinite" />
+  </circle>
+  
+  <circle cx="350" cy="575" r="30" fill="#3c3c3c">
+    <animateTransform attributeName="transform" type="rotate" from="360 350 575" to="0 350 575" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="575" r="20" fill="#4c4c4c">
+    <animateTransform attributeName="transform" type="rotate" from="0 350 575" to="360 350 575" dur="7s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Phone Body -->
+  <rect x="160" y="250" width="180" height="270" fill="#7f5a2b" rx="15" ry="15" />
+  <rect x="165" y="255" width="170" height="260" fill="#a57238" rx="15" ry="15" />
+
+  <!-- Keypad -->
+  <circle cx="250" cy="450" r="12" fill="#4c4c4c" />
+  <circle cx="225" cy="425" r="12" fill="#4c4c4c" />
+  <circle cx="275" cy="425" r="12" fill="#4c4c4c" />
+  <circle cx="225" cy="475" r="12" fill="#4c4c4c" />
+  <circle cx="275" cy="475" r="12" fill="#4c4c4c" />
+
+  <!-- Handset -->
+  <ellipse cx="250" cy="150" rx="140" ry="30" fill="#7f5a2b" />
+  <ellipse cx="250" cy="150" rx="130" ry="20" fill="#a57238" />
+  <circle cx="100" cy="150" r="20" fill="#3c3c3c" />
+  <circle cx="400" cy="150" r="20" fill="#3c3c3c" />
+  <circle cx="100" cy="150" r="12" fill="#7f5a2b" />
+  <circle cx="400" cy="150" r="12" fill="#7f5a2b" />
+
+  <!-- Pipes Connecting Handset with Animation -->
+  <path d="M 160 190 Q 200 230 180 300" stroke="#7f5a2b" stroke-width="8" fill="none">
+    <animate attributeName="stroke-width" values="8;4;8" dur="4s" repeatCount="indefinite" />
+  </path>
+  <path d="M 340 190 Q 300 230 320 300" stroke="#7f5a2b" stroke-width="8" fill="none">
+    <animate attributeName="stroke-width" values="8;4;8" dur="4s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Additional Decorative Gears with Rotation Animation -->
+  <circle cx="140" cy="320" r="20" fill="#3c3c3c">
+    <animateTransform attributeName="transform" type="rotate" from="0 140 320" to="360 140 320" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="140" cy="320" r="10" fill="#a57238" />
+  <circle cx="140" cy="320" r="5" fill="#4c4c4c" />
+
+  <circle cx="360" cy="320" r="20" fill="#3c3c3c">
+    <animateTransform attributeName="transform" type="rotate" from="360 360 320" to="0 360 320" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="360" cy="320" r="10" fill="#a57238" />
+  <circle cx="360" cy="320" r="5" fill="#4c4c4c" />
+
+  <!-- Clock Dial Display with Pulsing Effect -->
+  <circle cx="250" cy="300" r="50" fill="#3c3c3c">
+    <animate attributeName="r" values="50;55;50" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="300" r="40" fill="#a57238">
+    <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="300" r="10" fill="#3c3c3c" />
+
+  <!-- Clock Hands with Rotation Animation -->
+  <line x1="250" y1="300" x2="270" y2="260" stroke="#4c4c4c" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 300" to="360 250 300" dur="6s" repeatCount="indefinite" />
+  </line>
+  <line x1="250" y1="300" x2="230" y2="330" stroke="#4c4c4c" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="360 250 300" to="0 250 300" dur="6s" repeatCount="indefinite" />
+  </line>
+
+  <!-- Smoky Effect -->
+  <g opacity="0.4">
+    <ellipse cx="200" cy="140" rx="10" ry="5" fill="#ccc">
+      <animate attributeName="cy" values="140;120;140" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="300" cy="140" rx="10" ry="5" fill="#ccc">
+      <animate attributeName="cy" values="140;120;140" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite" />
+    </ellipse>
+  </g>
+</svg>

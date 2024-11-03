@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 import WeatheriaNFT from '../abi/WeatheriaNFT.json';
+import '../styles.css';
 
 const MintNFT = ({ signer }) => {
   const [image, setImage] = useState(null);
