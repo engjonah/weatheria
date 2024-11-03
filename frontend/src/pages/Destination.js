@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles.css';
-import ConnectButton from '../components/ConnectButton';
-import MintNFT from '../components/MintNft';
-import ViewNFTs from '../components/ViewNfts';
 
 function Destination() {
     const location = useLocation();
@@ -13,10 +10,7 @@ function Destination() {
     const [locationImage, setLocationImage] = useState("Placeholder"); // State to hold the image URL
     const [locationImageHtml, setLocationImageHtml] = useState("https://via.placeholder.com/1080x720?text=Image+Not+Found"); // State to hold the HTML link
 
-    // State for blockchain interaction
-    const [provider, setProvider] = useState(null);
-    const [signer, setSigner] = useState(null);
-    const [account, setAccount] = useState(null);
+    const navigate = useNavigate(); // Add navigate hook for redirection
 
     useEffect(() => {
         if (weatherData) {
@@ -108,26 +102,12 @@ function Destination() {
                 </ul>
             </div>
 
-            {/* Blockchain Interaction Section */}
+            {/* Redirect to Crypto Page */}
             <div className="blockchain-section">
                 <h2>Mint Your Destination as an NFT</h2>
-                
-                {/* Connect Wallet */}
-                <ConnectButton
-                    setProvider={setProvider}
-                    setSigner={setSigner}
-                    setAccount={setAccount}
-                />
-
-                {/* Mint NFT */}
-                {provider && signer && account && (
-                    <MintNFT signer={signer} />
-                )}
-
-                {/* View NFTs */}
-                {provider && account && (
-                    <ViewNFTs provider={provider} account={account} />
-                )}
+                <button className="redirect-button" onClick={() => navigate('/crypto')}>
+                    Go to Blockchain Interaction Page
+                </button>
             </div>
         </div>
     );
