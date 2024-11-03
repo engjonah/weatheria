@@ -8,7 +8,7 @@ import '../styles.css';
 function Home() {
   return (
     <div className="home-container">
-      <h2 className="home-heading">Welcome to Weatheria DApp</h2>
+      <h2 className="home-heading">Welcome to Weatheria</h2>
       <p className="home-text">
         Discover locations with your desired weather conditions through our sleek and intuitive interface.
       </p>

@@ -47,6 +47,16 @@ html, body {
   height: 100%;
 }
 
+body {
+  background-image: url('./assets/steampunk-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: var(--font-body);
+  color: var(--text-color);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--heading-color);
@@ -211,18 +221,35 @@ button:active {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px 40px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.96);
   position: sticky;
   top: 0;
   z-index: 1000;
   height: 100px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap'); /* Example fancy font */
+
+/* Navbar Logo Styling */
 .navbar-logo {
-  font-family: var(--font-logo);
-  font-size: 1.8em;
+  font-family: 'MedievalSharp', serif; /* Crazy, fancy font */
+  font-size: 2.5em;
   color: var(--button-color);
+  text-shadow: 0px 5px 8px rgba(0, 0, 0, 0.7), 0px 0px 15px #ffdd99;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  animation: breathing-glow 3s infinite ease-in-out; /* Smooth breathing glow */
 }
+
+@keyframes breathing-glow {
+  0%, 100% {
+    text-shadow: 0px 5px 8px rgba(0, 0, 0, 0.7), 0px 0px 15px #ffdd99, 0px 0px 20px #e6b800;
+  }
+  50% {
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7), 0px 0px 35px #ffdd99, 0px 0px 45px #e6b800;
+  }
+}
+
 
 .navbar-links {
   list-style: none;
@@ -280,7 +307,6 @@ button:active {
 
 /* About Page Styles */
 .about-container {
-  background: url('./assets/parchment.jpg') no-repeat center center fixed;
   background-size: cover;
   border: 1px solid #604d3b;
   padding: 60px;
@@ -310,9 +336,12 @@ button:active {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
   max-width: 800px;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Optional: Adds overlay for text readability */
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-container {
