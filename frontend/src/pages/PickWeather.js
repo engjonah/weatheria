@@ -42,7 +42,8 @@ function PickWeather() {
     setError(null);
     
     try {
-      const response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
+      let response = null;
+      response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ weatherData: { 
@@ -58,8 +59,25 @@ function PickWeather() {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
+        //horrible retry logic: 
+        response = await fetch('https://z3s2s5l67norlebmaspj3c3ro40dqkba.lambda-url.us-west-2.on.aws/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ weatherData: { 
+              current: {
+                  condition: { text: conditions },
+                  wind_mph: windMph,
+                  precip_in: precipIn,
+                  humidity: humidity,
+                  cloud: cloud,
+                  feelslike_f: feelslikeF
+              }
+          }}),
+        });
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
+        }
       }
 
       const data = await response.json();
