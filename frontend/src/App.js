@@ -1,57 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import BackendStatus from './components/BackendStatus';
-import './App.css';
-import ConnectButton from './components/ConnectButton';
-import MintNFT from './components/MintNft';
-import ViewNFTs from './components/ViewNfts';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import PickWeather from './pages/PickWeather';
+import About from './pages/About';
 
 function App() {
-  const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
-  const [account, setAccount] = useState(null);
-
-  const API_BASE_URL = process.env.NODE_ENV === 'production' ?
-    window.location.origin :
-    'http://localhost:3000';
-
-  let [test, setTest] = useState(null);
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/api/test`)
-      .then(res => res.json())
-      .then(res => {
-        setTest(res)
-      })
-  }, [API_BASE_URL]);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>Weatheria DApp</h1>
-        <ConnectButton setProvider={setProvider} setSigner={setSigner} setAccount={setAccount} />
-        {account && (
-          <>
-            <MintNFT signer={signer} />
-            <ViewNFTs provider={provider} account={account} />
-          </>
-        )}
+    <Router>
+      <div className="app-container">
+        {/* Decorative Gears */}
+        <img src="/gear-left.svg" alt="Gear Left" className="gear gear-left" />
+        <img src="/gear-right.svg" alt="Gear Right" className="gear gear-right" />
 
-        <BackendStatus status={test} />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Navbar />
+
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pick-weather" element={<PickWeather />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
