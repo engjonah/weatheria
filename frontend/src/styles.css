@@ -502,3 +502,147 @@ button:active {
     padding: 8px 16px;
   }
 }
+/* styles.css */
+
+.blockchain-section {
+  border-top: 2px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.blockchain-section h2 {
+  margin-bottom: 20px;
+}
+/* styles.css */
+
+/* styles.css */
+
+/* Container for the Crypto Page */
+.crypto-page-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(30, 30, 30, 0.85); /* Dark overlay for readability */
+  border: 3px solid #bfa17b; /* Steampunk-style border */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Sections within the Crypto Page */
+.connect-wallet-section,
+.mint-nft-section,
+.view-nfts-section {
+  border: 2px solid #d3af6c; /* Use steampunk color */
+  border-radius: 10px;
+  padding: 25px;
+  margin: 25px 0;
+  background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent background */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Section Headings */
+.connect-wallet-section h2,
+.mint-nft-section h2,
+.view-nfts-section h2 {
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
+}
+
+/* Connect Wallet Button */
+.connect-wallet-section button {
+  font-family: var(--font-heading);
+  color: var(--button-color);
+  background: var(--button-bg);
+  border: 2px solid var(--button-border);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 12px 25px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.connect-wallet-section button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--button-hover-shadow);
+}
+
+.connect-wallet-section button:active {
+  transform: translateY(0);
+  box-shadow: var(--button-active-shadow);
+}
+
+/* NFT Sections */
+.mint-nft-section,
+.view-nfts-section {
+  background-color: rgba(45, 45, 45, 0.85);
+}
+
+/* NFT Cards */
+.nft-card {
+  background-color: #3e2d23;
+  border: 2px solid #d3af6c;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nft-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.nft-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Transaction Hash Link */
+.transaction-hash a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.transaction-hash a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Responsive Adjustments for Crypto Page */
+@media (max-width: 768px) {
+  .crypto-page-container {
+    padding: 30px 15px;
+  }
+
+  .connect-wallet-section,
+  .mint-nft-section,
+  .view-nfts-section {
+    padding: 20px;
+  }
+
+  .nft-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-page-container {
+    padding: 20px 10px;
+  }
+
+  .connect-wallet-section,
+  .mint-nft-section,
+  .view-nfts-section {
+    padding: 15px;
+  }
+
+  .nft-card {
+    padding: 10px;
+  }
+}
