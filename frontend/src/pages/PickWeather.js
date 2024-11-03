@@ -92,7 +92,7 @@ function PickWeather() {
 
   return (
     <PickWeatherContainer className="pickweather-container">
-      <h2 className="pickweather-heading">Reverse Weather Search</h2>
+      <h2 className="pickweather-heading">Reverse Controlling</h2>
       <form
         className="pickweather-form"
         onSubmit={(e) => {
@@ -168,6 +168,7 @@ function PickWeather() {
             value={feelslikeF}
             color="#ff6347" // Tomato
             onChange={setFeelslikeF}
+            unit={'°F'}
           />
         </FormGroup>
 
@@ -177,6 +178,7 @@ function PickWeather() {
             value={humidity}
             color="#1e90ff" // DodgerBlue
             onChange={setHumidity}
+            unit={'%'}
           />
         </FormGroup>
 
@@ -188,6 +190,7 @@ function PickWeather() {
             min={0}
             max={250}
             step={1}
+            unit={'mph'}
           />
         </FormGroup>
 
@@ -197,6 +200,7 @@ function PickWeather() {
             value={cloud}
             color="#d3d3d3" // LightGray
             onChange={setCloud}
+            unit={'%'}
           />
         </FormGroup>
 
@@ -206,6 +210,7 @@ function PickWeather() {
             value={precipIn}
             color="#00ced1" // DarkTurquoise
             onChange={setPrecipIn}
+            unit={' in'}
           />
         </FormGroup>
 

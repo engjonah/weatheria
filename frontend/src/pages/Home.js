@@ -10,7 +10,7 @@ function Home() {
     <div className="home-container">
       <h2 className="home-heading">Welcome to Weatheria</h2>
       <p className="home-text">
-        Discover locations with your desired weather conditions through our sleek and intuitive interface.
+        Find where you're 'controlling' the weather with your desired weather conditions through our sleek and intuitive interface.
       </p>
       <img src={SteampunkDevice} alt="Weatheria Device" className="home-image" loading="lazy" />
       <div className="button-container">

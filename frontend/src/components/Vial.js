@@ -67,7 +67,7 @@ const VialValue = styled.span`
   text-shadow: 1px 1px #000;
 `;
 
-const Vial = ({ label, value, color, onChange }) => {
+const Vial = ({ label, unit, value, color, onChange }) => {
   const handleDrag = (e, data) => {
     // Calculate new value based on handle's x position
     const containerWidth = 200; // Should match VialContainer's width
@@ -92,7 +92,7 @@ const Vial = ({ label, value, color, onChange }) => {
           <Handle />
         </Draggable>
       </VialContainer>
-      <VialValue>{value}%</VialValue>
+      <VialValue>{value}{unit}</VialValue>
     </VialWrapper>
   );
 };
