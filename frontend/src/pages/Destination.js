@@ -5,7 +5,6 @@ import '../styles.css';
 import ConnectButton from '../components/ConnectButton';
 import MintNFT from '../components/MintNft';
 import ViewNFTs from '../components/ViewNfts';
-import { ethers } from 'ethers';
 
 function Destination() {
     const location = useLocation();
