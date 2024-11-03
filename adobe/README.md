@@ -20,4 +20,4 @@ Follow these steps to set up the add-on:
     npm run start
     ```
 
-Then, access Adobe Express and use the add-on! You can also access the add-on using [add-on link](https://adobesparkpost.app.link/TR9Mb7TXFLb?mode=private&claimCode=wgn60hm37:CLKYDUBS).
+Then, access Adobe Express and use the add-on! You can also access the add-on using [add-on link](https://adobesparkpost.app.link/TR9Mb7TXFLb?mode=private&claimCode=w1mk62198:XUG8OUYJ).
