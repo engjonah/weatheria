@@ -108,6 +108,11 @@ function Destination() {
                 </ul>
             </div>
 
+            {/* Link to adobe */}
+            <div className="blockchain-section">
+                <h2 style={{textAlign: "center"}}><a href='https://adobesparkpost.app.link/TR9Mb7TXFLb?mode=private&claimCode=w1mk62198:XUG8OUYJ'>Make a poster using this Adobe-on here!</a></h2>
+            </div>
+
             {/* Blockchain Interaction Section */}
             <div className="blockchain-section">
                 <h2>Mint Your Destination as an NFT</h2>
