@@ -1,0 +1,14 @@
+.container {
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.generate-button {
+    margin-top: 16px;
+}
+
+.label-button {
+    margin-top: 16px;
+    margin-left: 16px;
+}
