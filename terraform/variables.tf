@@ -1,5 +1,9 @@
-locals {
-  envs = { for tuple in regexall("(.*)=(.*)", file(".env")) : tuple[0] => sensitive(tuple[1]) }
+variable "MONGODB_URI" {
+    description = "mongo uri"
+}
+
+variable "GITHUB_TOKEN" {
+    description = "github token"
 }
 
 variable "repository" {
