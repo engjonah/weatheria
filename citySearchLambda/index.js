@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB connection string
-const uri = 'mongodb+srv://nff4:1vDKolX685OdO05p@weatheriadb.smcfz.mongodb.net/?retryWrites=true&w=majority&appName=WeatheriaDB';
+const uri = process.env.MONGODB_URI; 
 
 // Define a schema and model
 const weatherSchema = new mongoose.Schema({
